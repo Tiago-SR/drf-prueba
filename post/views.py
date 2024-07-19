@@ -1,25 +1,18 @@
-from django.http import HttpResponse
-from django.views.decorators.csrf import csrf_exempt
 from .models import Post, Comment
+from rest_framework import viewsets
+from .serializers import PostSerializer, CommentSerializer, PostDetailSerializer
 
-# Create your views here.
-@csrf_exempt
-def posts(request):
-  match request.method:
-    case 'GET':
-      return get(request)
-    case 'POST':
-      return post(request)
+class PostViewSet(viewsets.ModelViewSet):
+  queryset = Post.objects.all()
+  
+  # El metodo get_serializer_class determina que 'accion' se debe llevar a cabo 
+  def get_serializer_class(self):
+    # 'retrieve' es cuando se consulta un elemento especifico
+    if self.action == 'retrieve':
+      return PostDetailSerializer
+    return PostSerializer
 
 
-def get(request):
-  posts = Post.objects.all().values()
-  return HttpResponse(posts)
-
-def post(request):
-  title = request.POST['title']
-  author = request.POST['author']
-  content = request.POST['content']
-  post = Post.objects.create(title = title, author = author, content = content)
-
-  return HttpResponse(post)
+class CommentViewSet(viewsets.ModelViewSet):
+  queryset = Comment.objects.all()
+  serializer_class = CommentSerializer
