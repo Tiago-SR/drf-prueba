@@ -9,24 +9,19 @@ class Migration(migrations.Migration):
     initial = True
 
     dependencies = [
+        ('post', '0001_initial'),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Comment',
+            name='User',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('content', models.TextField()),
+                ('first_name', models.CharField(max_length=40)),
+                ('last_name', models.CharField(max_length=40)),
+                ('birthday', models.DateField()),
                 ('created_at', models.DateTimeField(default=django.utils.timezone.now)),
-            ],
-        ),
-        migrations.CreateModel(
-            name='Post',
-            fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('title', models.CharField(max_length=40)),
-                ('content', models.TextField()),
-                ('created_at', models.DateTimeField(default=django.utils.timezone.now)),
+                ('liked_posts', models.ManyToManyField(blank=True, related_name='liked_by', to='post.post')),
             ],
         ),
     ]
