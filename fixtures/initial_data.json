@@ -3,6 +3,9 @@
     "model": "user.user",
     "pk": 1,
     "fields": {
+      "username":"tsilva",
+      "email":"tiaval@hotmail.es",
+      "password":"tiago123silva",
       "first_name": "Tiago",
       "last_name": "Silva",
       "birthday": "2003-09-03",
@@ -13,6 +16,9 @@
     "model": "user.user",
     "pk": 2,
     "fields": {
+      "username":"vsilva",
+      "email":"valentino@gmail.com",
+      "password":"valentino123",
       "first_name": "Valentino",
       "last_name": "Silva",
       "birthday": "2010-08-02",
