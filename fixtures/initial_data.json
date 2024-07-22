@@ -1,0 +1,58 @@
+[
+  {
+    "model": "user.user",
+    "pk": 1,
+    "fields": {
+      "first_name": "Tiago",
+      "last_name": "Silva",
+      "birthday": "2003-09-03",
+      "liked_posts": []
+    }
+  },
+  {
+    "model": "user.user",
+    "pk": 2,
+    "fields": {
+      "first_name": "Valentino",
+      "last_name": "Silva",
+      "birthday": "2010-08-02",
+      "liked_posts": []
+    }
+  },
+  {
+    "model": "post.post",
+    "pk": 1,
+    "fields": {
+      "title": "Aprender Python",
+      "content": "Aprender un nuevo lenguaje para el trabajo.",
+      "author": 1
+    }
+  },
+  {
+    "model": "post.post",
+    "pk": 2,
+    "fields": {
+      "title": "Aprender Django",
+      "content": "Aprender un nuevo framework de python para el trabajo.",
+      "author": 1
+    }
+  },
+  {
+    "model": "post.post",
+    "pk": 3,
+    "fields": {
+      "title": "Aprender Django Rest Framework",
+      "content": "Aprender la parte backend del framework de python para el trabajo.",
+      "author": 1
+    }
+  },
+  {
+    "model": "comment.comment",
+    "pk": 1,
+    "fields": {
+      "post": 1,
+      "content": "Te queda poco para aprender el lenguaje",
+      "author": 2
+    }
+  }
+]

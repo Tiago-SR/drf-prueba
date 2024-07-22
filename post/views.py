@@ -1,6 +1,6 @@
-from .models import Post, Comment
+from .models import Post
 from rest_framework import viewsets
-from .serializers import PostSerializer, CommentSerializer, PostDetailSerializer
+from .serializers import PostSerializer, PostDetailSerializer
 
 class PostViewSet(viewsets.ModelViewSet):
   queryset = Post.objects.all()
@@ -11,8 +11,3 @@ class PostViewSet(viewsets.ModelViewSet):
     if self.action == 'retrieve':
       return PostDetailSerializer
     return PostSerializer
-
-
-class CommentViewSet(viewsets.ModelViewSet):
-  queryset = Comment.objects.all()
-  serializer_class = CommentSerializer
